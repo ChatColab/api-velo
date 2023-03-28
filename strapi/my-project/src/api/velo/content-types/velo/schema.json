@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "velos",
+  "info": {
+    "singularName": "velo",
+    "pluralName": "velos",
+    "displayName": "velo"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "x": {
+      "type": "float"
+    },
+    "y": {
+      "type": "float"
+    },
+    "capacite": {
+      "type": "integer"
+    },
+    "code_com": {
+      "type": "integer"
+    },
+    "gratuit": {
+      "type": "boolean"
+    }
+  }
+}
