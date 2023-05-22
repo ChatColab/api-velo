@@ -1,9 +1,9 @@
 <script setup>
-import AccueilTest from '../components/AccueilTest.vue'
+import ComposantGeo from "@/components/ComposantGeo.vue";
 </script>
 
 <template>
     <main>
-        <p>geoloc</p>
+        <ComposantGeo />
     </main>
 </template>

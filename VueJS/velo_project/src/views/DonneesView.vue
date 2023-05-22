@@ -1,9 +1,9 @@
 <script setup>
-import AccueilTest from '../components/AccueilTest.vue'
+import Data from '../components/Data.vue'
 </script>
 
 <template>
     <main>
-        <p>données</p>
+        <Data />
     </main>
 </template>
