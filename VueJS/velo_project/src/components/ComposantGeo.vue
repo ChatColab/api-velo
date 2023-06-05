@@ -8,12 +8,12 @@ export default {
             map: null,
             currentCoordinates: [49.8652904994832, 2.3786318],
             defaultZoom: 12,
-            // Add this property to store markers
             markers: [],
         }
     },
     mounted() {
         this.initMap()
+        this.fetchAndDisplayMarkers();
     },
     methods: {
         initMap() {
@@ -24,7 +24,6 @@ export default {
                 attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
             }).addTo(this.map)
 
-            // Listen for moveend event
             this.map.on('moveend', this.fetchAndDisplayMarkers)
         },
         updateMapCenter() {
@@ -34,10 +33,8 @@ export default {
             this.$emit('updateMarkers', this.map.getBounds())
         },
         displayMarkers(parks) {
-            // Remove old markers
             this.markers.forEach(marker => this.map.removeLayer(marker))
 
-            // Add new markers
             parks.forEach(park => {
                 let color = 'green';
 
@@ -57,8 +54,12 @@ export default {
                 })
 
                 let marker = L.marker([park.attributes.y, park.attributes.x], {icon: markerIcon}).addTo(this.map)
-                // Add a popup with the park's name and available spaces
-                marker.bindPopup(`<b>test</b><br>${park.attributes.capacite} places disponibles.`)
+                if (park.attributes.capacite === null) {
+                    marker.bindPopup(`<b>test</b><br>Capacité inconnue`)
+                }
+                else{
+                    marker.bindPopup(`<b>test</b><br>Capacité : ${park.attributes.capacite}`)
+                }
                 this.markers.push(marker)
             })
         },

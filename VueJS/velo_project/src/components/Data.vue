@@ -24,7 +24,7 @@ export default {
 
             axios.get(apiUrl, config)
                 .then(response => {
-                    const data = response.data.data
+                    const data = response.data
                     console.log(data)
                 })
                 .catch(error => {
